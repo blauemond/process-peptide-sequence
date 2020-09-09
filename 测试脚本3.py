@@ -5,7 +5,7 @@ import pandas as pd
 
 dictseq = {}
 n = 0
-for seq_record in SeqIO.parse("D:/BaiduYunDownload/YZ Meng/python爬虫/测试用氨基酸/TIR.fasta", "fasta"):
+for seq_record in SeqIO.parse("TIR.fasta", "fasta"):
     n = n + 1
     xid = seq_record.id.split("|")
     yid = xid[1]
