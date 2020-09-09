@@ -16,7 +16,7 @@ site = []
 prid = []
 
 n = 0
-for seq_record in SeqIO.parse("D:/BaiduYunDownload/YZ Meng/python爬虫/测试用氨基酸/TIR.fasta", "fasta"):
+for seq_record in SeqIO.parse("TIR.fasta", "fasta"):
     n = n + 1
 
     for index,AA in enumerate(seq_record):
@@ -45,4 +45,4 @@ while aimseq.count('')>0:
 
 data = {"uniprotID":prid,"site":site,"sequence":aimseq}
 dfend = pd.DataFrame(data)
-dfend.to_excel('D:\BaiduYunDownload\YZ Meng\python爬虫\测试用氨基酸\TIRseqC.xlsx')
+dfend.to_excel('TIRseqC.xlsx')
