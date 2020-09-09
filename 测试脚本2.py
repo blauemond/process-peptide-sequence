@@ -13,7 +13,7 @@ end = input('That is :')
 #下面是读取全部人类蛋白质组进入一个大字典的脚本部分
 dictseq = {}
 n1 = 0
-for seq_record in SeqIO.parse("D:\BaiduYunDownload\YZ Meng\python爬虫\测试用氨基酸\[人]uniprot-proteome UP000005640.fasta", "fasta"):
+for seq_record in SeqIO.parse("[人]uniprot-proteome UP000005640.fasta", "fasta"):
     n1 = n1 + 1
     xid = seq_record.id.split("|")
     yid = xid[1]
@@ -23,7 +23,7 @@ for seq_record in SeqIO.parse("D:\BaiduYunDownload\YZ Meng\python爬虫\测试�
     print('蛋白质组数据读取运行中，目前已至第',n1,'次，蛋白质ID为',yid)
 
 #下面是逐个匹配的过程
-df = pd.read_excel('D:/BaiduYunDownload/YZ Meng/python爬虫/测试用氨基酸/测试样本.xlsx')
+df = pd.read_excel('测试样本.xlsx')
 stseq = []
 n2 = 0
 for row in df.itertuples():
@@ -46,4 +46,4 @@ for row in df.itertuples():
 
 
 df['standard_sequence']=stseq
-df.to_csv('D:\BaiduYunDownload\YZ Meng\python爬虫\测试用氨基酸\human seqC.csv')
+df.to_csv('human seqC.csv')
