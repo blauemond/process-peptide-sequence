@@ -52,3 +52,37 @@ for seq_record in SeqIO.parse("[酵母]uniprot-proteome UP000002311.fasta", "fas
 print('运行完毕')
 
 
+
+#下面是逐个匹配的过程
+df = pd.read_excel('O-PTM/sample3.xlsx')
+stseq = []
+nn = 0
+for row in df.itertuples():
+    aimid = row[1]
+    aimsite = row[2]
+    try:
+        sseq = dictseq[aimid]
+​
+        if aimsite < 26:
+            seq51 = (26-aimsite)*'*' + sseq[0:aimsite+25]
+            stseq.append(seq51)
+        elif (aimsite+24) > len(sseq):
+            seq51 = sseq[aimsite-26:] + (25-(len(sseq)-aimsite))*'*'
+            stseq.append(seq51)
+        else:
+            seq51 = sseq[aimsite-26:aimsite+25]
+            stseq.append(seq51)
+    except:
+        stseq.append('error')
+        
+    
+    nn = nn + 1
+    print('蛋白质序列匹配中,目前已经运行至第',nn,'个','aimsite为',aimsite,'序列为',seq51)
+    
+#while stseq.count('')>0:
+#    stseq.remove('')
+    
+​
+df['standard_sequence']=stseq
+df.to_csv('NO/rs3.csv')
+print("运行完毕！")
