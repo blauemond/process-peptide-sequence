@@ -54,7 +54,7 @@ print('运行完毕')
 
 
 #下面是逐个匹配的过程
-df = pd.read_excel('O-PTM/sample3.xlsx')
+df = pd.read_excel('sample.xlsx')
 stseq = []
 nn = 0
 for row in df.itertuples():
@@ -84,5 +84,5 @@ for row in df.itertuples():
     
 ​
 df['standard_sequence']=stseq
-df.to_csv('NO/rs3.csv')
+df.to_csv('result.csv')
 print("运行完毕！")
