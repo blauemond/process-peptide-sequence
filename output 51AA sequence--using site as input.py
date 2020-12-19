@@ -31,9 +31,9 @@ n2 = 0
 for row in df.itertuples():
     aimid = row[1]
     aimsite = row[2]
-    sseq = dictseq[aimid]
     
     try:
+        sseq = dictseq[aimid]
         if (aimsite<25):
             nonn=(26-aimsite)*'-'
             seq51 = nonn+sseq[0:aimsite+25]
